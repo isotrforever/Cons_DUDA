@@ -1,0 +1,44 @@
+data structure:
+        /task_raw/
+               |_______csv/
+               |        |________"train.csv", "test.csv", "pred.csv", "unsup_ext.csv"
+               |         sub_set: train/unsup_in,   test,       pred,      unsup_ext
+               |
+               |_______unsup/aug_ops/
+               |            |____"unsup_tokenized.pt", "unsup_bert_input.pt"
+               |
+               |_______sup/
+               |         |_______"train_bert_input.pt", "test_bert_input", "train_tokenized.pt", "test_tokenized.pt"
+               |
+               |_______pred/
+               |          |______"pred_bert_input.pt", "pred_tokenized.pt"
+               |
+               |_______"vocab.pt"
+
+Must be tested:
+        1 - tf-idf_augmentation, debug;
+        # lower the probability from 0.9 to 0.1.
+        2 - supervised threshold trick;
+        # no bug
+        3 - bert classifier should be without soft-max layer
+            use log_soft-max in ori-examples
+        # Have checked and fixed
+        4 - optimize logging forms
+        # Have finished
+        5 - Check the input of the bert model
+        # Have checked
+        6 - check the train ability of bert model
+        # Checked
+
+functions remain to be done:
+        1 - automatically define file names according to task name and augmentation method
+        # Bingo
+        2 - bert load from pre-trained model, or pre-train model;
+        # Bingo
+        3 - purely bert without uda or augmentation
+        # Bingo
+        4 - scatter to GPU
+        # Bingo
+        5 - sentence pair;
+        # Bingo
+        6 - Pre-train bert model published by hugging face
